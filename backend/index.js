@@ -10,18 +10,18 @@ app.use(cors());
 const tarefas = [
   {
     id: crypto.randomUUID(),
-    text: "Ir ao mercado",
-    prazo: "2 dias"
-  },
-  {
-    id: crypto.randomUUID(),
-    text: "Estudar sobre git",
-    prazo: "3 dias"
-  },
-  {
-    id: crypto.randomUUID(),
     text: "Estudar javascript",
     prazo: "10 dias"
+  }, 
+  {
+    id: crypto.randomUUID(),
+    text: "Estudar CSS",
+    prazo: "5 dias"
+  }, 
+  {
+    id: crypto.randomUUID(),
+    text: "Estudar HTML",
+    prazo: "2 dias"
   }
 ];
 
@@ -35,12 +35,12 @@ app.get("/tarefas", (req, res) => {
 
 app.get("/tarefas/:id", (req, res) => {
   const idParam = req.params.id;
-  const tarefa = tarefas.find(item => item.id == idParam);
+  const tarefa = tarefas.find(tarefa => tarefa.id == idParam);
   res.send(tarefa);
-})
+});
 
 const port = 3000;
 
 app.listen(port, () => {
-  console.log(`A aplicação está rodando na porta ${port}`);
+  console.log(`O app está rodando na porta ${port}`);
 });
