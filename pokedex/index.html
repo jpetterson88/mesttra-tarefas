@@ -4,10 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex Simples</title>
+  <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
-  <h1>Lista de pokemons</h1>
-  <ul id="pokemons"></ul>
-  <script src="./script.js"></script>
+  <header class="pokedex-header">
+    <img src="./src/img/logo-pokemon-menor.png" alt="Logo do Pokemon Amarela">
+    <h1>Lista de pokémons</h1>
+  </header>
+  <main>
+    <section class="container">
+      <form class="form-busca">
+        <input type="text" name="buscar" id="buscar" placeholder="Digite o nome do pokémon">
+        <button type="submit">Buscar</button>
+      </form>
+      <ul id="pokemons" class="lista-pokemons"></ul>
+    </section>
+  </main>
+  <script src="./src/js/script.js"></script>
 </body>
 </html>
