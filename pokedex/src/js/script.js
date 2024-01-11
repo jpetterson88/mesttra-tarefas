@@ -19,7 +19,7 @@ const renderOne = (pokemon) => {
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${pokemon.id}.gif" />
     <h3>${pokemon.name}</h3>
     <h4>Peso: ${pokemon.weight}</h4>
-    <p>Tipo:${pokemon.types.map(item => " " + item.type.name)}</p>
+    <p>Tipo: ${pokemon.types.map(item => item.type.name).join("/")}</p>
   </li>`);
 }
 
