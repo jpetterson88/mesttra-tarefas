@@ -13,8 +13,8 @@
   </header>
   <main>
     <section class="container">
-      <form class="form-busca">
-        <input type="text" name="buscar" id="buscar" placeholder="Digite o nome do pokémon">
+      <form class="form-busca" onsubmit="searchPokemon(event)">
+        <input type="text" name="buscar" id="buscarInput" placeholder="Digite o nome do pokémon">
         <button type="submit">Buscar</button>
       </form>
       <ul id="pokemons" class="lista-pokemons"></ul>
