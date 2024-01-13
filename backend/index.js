@@ -47,11 +47,12 @@ app.post("/inserir", (req, res) => {
     ...tarefa
   };
 
-  !tarefa || !tarefa.text || !tarefa.prazo
-    ? res.status(400).send("Faltam dados da tarefa")
-    : res.send("Tarefa registrada com sucesso!");
-
-  tarefas.push(novaTarefa);
+  if (!tarefa.text || !tarefa.prazo) {
+    res.status(400).send("Faltam dados da tarefa");
+  } else {
+    tarefas.push(novaTarefa);
+    res.send("Tarefa registrada com sucesso!");
+  }
 });
 
 app.delete("/deletar/:id", (req, res) => {

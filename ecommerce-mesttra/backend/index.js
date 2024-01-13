@@ -6,9 +6,8 @@ const app = express();
 app.use(express.json());
 app.use("/products", productRouter);
 
-
 app.get("/", (req, res) => {
-    res.send("Olá mundo!");
+  res.send("Olá mundo!");
 });
 
 const port = 3000;
