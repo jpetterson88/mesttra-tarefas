@@ -3,26 +3,7 @@ const crypto = require("crypto");
 
 const router = express.Router();
 
-const products = [
-  {
-    id: crypto.randomUUID(),
-    name: "Playstation 5",
-    category: "Eletrônicos",
-    price: "R$4000"
-  },
-  {
-    id: crypto.randomUUID(),
-    name: "Nintendo Wii",
-    category: "Eletrônicos",
-    price: "R$2000"
-  },
-  {
-    id: crypto.randomUUID(),
-    name: "Geladeira",
-    category: "Eletrodomésticos",
-    price: "R$2500"
-  }
-];
+const products = [];
 
 router.get("/", (req, res) => {
   res.send(products);
@@ -54,11 +35,24 @@ router.post("/add", (req, res) => {
   }
 });
 
+router.put("/edit/:id", (req, res) => {
+  const idParam = req.params.id;
+  const editProduct = req.body;
+  const index = products.findIndex(product => product.id == idParam);
+
+  products[index] = {
+    ...products[index],
+    ...editProduct
+  }
+
+  res.send("Produto alterado com sucesso!");
+});
+
 router.delete("/delete/:id", (req, res) => {
   const idParam = req.params.id;
-  const productIndex = products.findIndex(product => product.id == idParam);
+  const index = products.findIndex(product => product.id == idParam);
 
-  products.splice(productIndex, 1);
+  products.splice(index, 1);
   res.send(`Produto removido com sucesso!`);
 });
 
