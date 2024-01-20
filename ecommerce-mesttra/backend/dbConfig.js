@@ -10,11 +10,11 @@ const pool = new Pool({
   port: "5432"
 });
 
-const teste = async () => {
-  const result = await pool.query("SELECT * FROM products");
-  console.log(result.rows[0]);
-}
+// const teste = async () => {
+//   const result = await pool.query("SELECT * FROM products");
+//   console.log(result.rows);
+// }
 
-teste();
+// teste();
 
 module.exports = pool;
